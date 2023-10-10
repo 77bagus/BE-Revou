@@ -1,0 +1,78 @@
+@base_url = http://localhost:12345
+
+### Membuat Pengguna Baru ###
+POST {{base_url}}/user/
+Content-Type: application/json
+
+{
+  "nama": "John Doe",
+  "email": "johndoe@example.com",
+  "kata_sandi": "password123",
+  "alamat_pengiriman": "123 Main Street"
+}
+
+###
+POST {{base_url}}/user/login
+Content-Type: application/json
+
+{
+  "email": "johndoe@example.comasdcas",
+  "kata_sandi": "password123",
+}
+
+### Mendapatkan Semua Pengguna ###
+GET {{base_url}}/
+
+### Mendapatkan Pengguna Berdasarkan ID ###
+GET {{base_url}}/user/
+
+### Membuat Pesanan Baru ###
+POST {{base_url}}/order/buat-pesanan
+Content-Type: application/json
+
+{
+  "id_pelanggan": 1,
+  "tanggal_pemesanan": "2023-10-10",
+  "total_harga": 100.0,
+  "status_pesanan": "PENDING",
+  "alamat_pengiriman": "456 Elm Street"
+}
+
+### Mendapatkan Semua Pesanan ###
+GET {{base_url}}/orders
+
+### Mendapatkan Pesanan Berdasarkan ID ###
+GET {{base_url}}/order/1
+
+### Mendapatkan Semua Produk ###
+GET {{base_url}}/product
+
+### Mendapatkan Produk Berdasarkan ID ###
+GET {{base_url}}/produk/1
+
+### Membuat Produk Baru ###
+POST {{base_url}}/product/buat-produk
+Content-Type: application/json
+
+{
+  "nama_produk": "Produk Baru",
+  "deskripsi_produk": "Deskripsi produk baru",
+  "harga": 100.0,
+  "stok": 50,
+  "id_kategori" : 1,
+  "url_gambar": "https://picsum.com/200/200"
+}
+
+### Memperbarui Produk Berdasarkan ID ###
+PUT {{base_url}}/produk/1
+Content-Type: application/json
+
+{
+  "nama": "Produk Terbaru",
+  "deskripsi": "Deskripsi produk terbaru",
+  "harga": 120.0,
+  "stok": 60
+}
+
+### Menghapus Produk Berdasarkan ID ###
+DELETE {{base_url}}/produk/1
